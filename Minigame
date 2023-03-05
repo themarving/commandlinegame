@@ -1,0 +1,56 @@
+public class Minigame {
+    
+    public static void startGame() {
+        int failureCounter = 0;
+        String input = "";
+
+        do {
+            // print seek field
+            Animations.randomBinary(3);
+            Animations.seekKey(STARTGAME.MINIGAME_KEYCODE);
+            Animations.randomBinary(2);
+            Animations.seekKey(STARTGAME.MINIGAME_KEYCODE);
+            Animations.randomBinary(1);
+            System.out.println();
+
+            System.out.print("Input keycode: ");
+            input = System.console().readLine();
+            System.out.println();
+
+            if (!(input.equals(STARTGAME.MINIGAME_KEYCODE))) {
+                failureCounter++;
+
+                // automatically continue game after 4 failed attempts
+                if (failureCounter == 4) {
+                    break;
+                }  
+
+                // printing error message
+                for (int i = 0; i < 3; i++) {
+                    System.out.print("WRONG KEYCODE ");
+                    Methods.sleepy(400);
+                    System.out.print("WRONG KEYCODE");
+                    Methods.sleepy(800);
+                    System.out.println();
+                }
+                System.out.println();
+
+                // give player hint after 2 failed attempts
+                if (failureCounter == 2) {
+                    System.out.println("Hint: /KEYCODE/");
+                }
+            }   
+
+        } while (!(input.equals(STARTGAME.MINIGAME_KEYCODE)));
+
+        // GAINING TRUST
+        if(failureCounter < 2) {
+            STARTGAME.TRUST_LEVEL += 1;
+        }
+
+        System.out.println("ACCESS GRANTED");
+        Methods.sleepy(1000);
+        System.out.println("");
+    }
+
+}
