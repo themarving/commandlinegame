@@ -1,0 +1,56 @@
+public class Methods {
+    
+    // sleep method
+    public static void sleepy(int time) {
+        try {
+            Thread.sleep(time);
+          } 
+          catch (Exception e) {
+            return;
+          }
+    }
+
+    // prompts user to give back answer A, B or C
+    public static String readConsole(int choiceAmount) {
+        String input = "";
+
+        // answer: A
+        if (choiceAmount == 1) {
+            do {
+                sleepy(100);
+                System.out.print("ANSWER: ");
+                input = System.console().readLine();
+                if (input.equalsIgnoreCase("A")) {
+                    return input;
+                }
+            } while (true);
+        }
+
+        // answer: A or B
+        if (choiceAmount == 2) {
+            do {
+                sleepy(100);
+                System.out.print("ANSWER: ");
+                input = System.console().readLine();
+                if (input.equalsIgnoreCase("A") || input.equalsIgnoreCase("B")) {
+                    return input;
+                }
+            } while (true);
+        }
+
+        // answer: A, B or C
+        if (choiceAmount == 3) {
+            do {
+                sleepy(100);
+                System.out.print("ANSWER: ");
+                input = System.console().readLine();
+                if (input.equalsIgnoreCase("A") || input.equalsIgnoreCase("B") || input.equalsIgnoreCase("C")) {
+                    return input;
+                }
+            } while (true);
+        }
+
+        return input;
+    }
+
+}
