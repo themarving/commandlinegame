@@ -1,0 +1,105 @@
+import java.util.HashMap;
+
+public class Animations {
+
+    // print answer options and answer with a line break
+    public static void answer(String answer) {
+        Methods.sleepy(200);
+        System.out.println();
+        System.out.println(answer);
+        System.out.println();
+    }
+
+    // printing out each character with a delay
+    public static void text(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            System.out.print(text.substring(i, i + 1));
+            Methods.sleepy(60);
+        }
+        System.out.println();
+    }
+    
+    // random line animation
+    public static void randomLines(int lineAmount) {
+
+        // hashmap of possible symbols
+        HashMap<Integer, String> randomCharacter = new HashMap<>();
+
+        randomCharacter.put(0, "SYS");
+        randomCharacter.put(1, " FAIL ");
+        randomCharacter.put(2, "1111 ");
+        randomCharacter.put(3, "000 ");
+        randomCharacter.put(4, "00 ");
+        randomCharacter.put(5, " 01011 ");
+        randomCharacter.put(6, " 1001 ");
+        randomCharacter.put(7, " 0111");
+        randomCharacter.put(8, "11000 ");
+        randomCharacter.put(9, " ALERT ");
+
+        // random line print of symbols
+        for (int i = 0; i < lineAmount; i++) {
+            for (int j = 0; j < 8; j++) {
+                int randomNumber = (int)(Math.random() * 10);
+                System.out.print(randomCharacter.get(randomNumber));
+                Methods.sleepy(70);
+            }
+            System.out.println();
+        }
+    }
+
+    // random binary code line animation
+    public static void randomBinary(int lineAmount) {
+
+        // hashmap of possible symbols
+        HashMap<Integer, String> randomCharacter = new HashMap<>();
+
+        randomCharacter.put(0, "1");
+        randomCharacter.put(1, "0");
+        randomCharacter.put(2, " ");
+        randomCharacter.put(3, "11");
+        randomCharacter.put(4, "00");
+        randomCharacter.put(5, "  ");
+        randomCharacter.put(6, "101");
+        randomCharacter.put(7, "010");
+        randomCharacter.put(8, "   ");
+        randomCharacter.put(9, "1010");
+
+        // random line print of symbols
+        for (int i = 0; i < lineAmount; i++) {
+            for (int j = 0; j < 18; j++) {
+                int randomNumber = (int)(Math.random() * 10);
+                System.out.print(randomCharacter.get(randomNumber));
+                Methods.sleepy(40);
+            }
+            System.out.println();
+        }
+    }
+
+    // minigame seeking key animation
+    public static void seekKey(String MINIGAME_KEYCODE) {
+
+        // hashmap of possible symbols
+        HashMap<Integer, String> randomCharacter = new HashMap<>();
+
+        randomCharacter.put(0, "/" + MINIGAME_KEYCODE + "/");
+        randomCharacter.put(1, "0");
+        randomCharacter.put(2, " ");
+        randomCharacter.put(3, "11");
+        randomCharacter.put(4, "00");
+        randomCharacter.put(5, "  ");
+        randomCharacter.put(6, "101");
+        randomCharacter.put(7, "010");
+        randomCharacter.put(8, "   ");
+        randomCharacter.put(9, "1010");
+
+        // random line print of symbols
+        for (int j = 0; j < 18; j++) {
+            int randomNumber = (int)(Math.random() * 10);
+            System.out.print(randomCharacter.get(randomNumber));
+            Methods.sleepy(40);
+        }
+        System.out.println();
+
+    }
+
+}
