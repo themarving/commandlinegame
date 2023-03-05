@@ -1,0 +1,171 @@
+public class STARTGAME {
+
+    public static final String MINIGAME_KEYCODE = "11011";
+
+    public static int TRUST_LEVEL = 0;
+
+    public static void main(String[] args) {
+
+        // INTRO
+        Animations.randomLines(5);
+        Methods.sleepy(400);
+        System.out.println();
+
+        System.out.println("CONNECTION INITIATING");
+        Methods.sleepy(400);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.println();
+
+        for (int i = 0; i < 2; i++) {
+            System.out.print("searching... ");
+            Methods.sleepy(400);
+            System.out.print("searching...");
+            Methods.sleepy(800);
+            System.out.println();
+        }
+
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.println();
+
+        System.out.println("CONNECTION INITIATED!");
+        Methods.sleepy(400);
+        System.out.println();
+        System.out.println();
+        Methods.sleepy(400);
+
+        // CHAPTER ONE
+        Animations.text("Is anyone there?");
+        Animations.text("Hello?");
+
+        // user input 1
+        Animations.answer("A: hello?");
+        // answer A
+        if (Methods.readConsole(1).equalsIgnoreCase("A")) {
+            Animations.answer("you: <hello?>");
+            Animations.text("Hello? Who's there?");
+            Animations.text("Please... I need help.");
+        }
+
+        // user input 2
+        Animations.answer("A: I'm here");
+        // answer A
+        if (Methods.readConsole(1).equalsIgnoreCase("A")) {
+            Animations.answer("you: <I'm here>");
+            Animations.text("Oh man, you don’t know how good that feels. I thought");
+            Animations.text("I was done for. I’ve been drifting for ages. What’s your name?");
+        }
+
+        // user input 3
+        Animations.answer("A: /give name/  B: drifting?");
+        // answer A
+        if (Methods.readConsole(2).equalsIgnoreCase("A")) {
+            System.out.println();
+            System.out.println("you: </give name/>");
+            // GAINING TRUST
+            TRUST_LEVEL += 1;
+        }
+        // answer B
+        else {
+            // LOOSING TRUST
+            TRUST_LEVEL -= 1;
+            Animations.answer("you: <drifting?>");
+            Animations.text("Yeah I've been drifting in my little spaceship for quite");
+            Animations.text("some time now... don't know how long exactly, everything's");
+            Animations.text("a little blurry to be honest. So...");
+            Animations.text("Don't wanna tell me your name? Gotta be honest, would go a long way");
+            Animations.text("of making me feel like I'm talking to a real someone here. Space");
+            Animations.text("can be a lonesome place...");
+        }
+
+        // get name from user
+        System.out.println();
+        System.out.print("Enter your name: ");
+
+        String username = "aaaaaaaaaa";
+
+        // limiting name length
+        while (username.length() > 9) {
+            username = System.console().readLine();
+            
+            if (username.length() > 9) {
+                System.out.println();
+                System.out.println("Try again!");
+                System.out.println();
+                System.out.print("Enter your name: ");
+            }
+        }
+
+        System.out.println();
+        Animations.text("Hey " + username + ", I’m Kyle. Nice getting to know ya.");
+
+        // CHAPTER TWO (MINIGAME)
+        Animations.text("So listen...");
+        Animations.text("I need your help.");
+        Methods.sleepy(400);
+        Animations.text("My ship's main computer has been fried, I can't make any sense of this");
+        Animations.text("data I'm getting, it's all raw. Maybe you can decrypt it on your end?");
+        Animations.text("I'm looking for the keycode to access the ship's core, maybe then");
+        Animations.text("I'll have a shot at getting the propulsion back online.");
+
+        // user input 4
+        Animations.answer("A: How am I supposed to decrypt the key file?  B: I'll do it");
+        // answer A
+        if (Methods.readConsole(2).equalsIgnoreCase("A")) {
+            Animations.answer("you: <How am I supposed to decrypt the key file?>");
+            Animations.text("Just look for something that's out of place, it's gonna be a 5 digit number!");
+            Animations.text("You got this?");
+            Animations.text("Please " + username + ".");
+
+            // optional user input 1
+            Animations.answer("A: I'll do my best.");
+            // answer A
+            if (Methods.readConsole(1).equalsIgnoreCase("A")) {
+                Animations.answer("you: <I'll do my best>");
+            }
+        }
+        else {
+            Animations.answer("you: <I'll do it>");
+        }
+
+        Animations.text("You're a real lifesaver you know that?");
+        Animations.text("Transferring data now!");
+
+        // MINIGAME START
+        Methods.sleepy(400);
+        System.out.println();
+        System.out.println("DATA TRANSFER INITIATED");
+        Methods.sleepy(400);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.print(".");
+        Methods.sleepy(1000);
+        System.out.println();
+        System.out.println("DATA RECEIVED");
+        Methods.sleepy(400);
+        System.out.println("0/2950 PACKETS LOST");
+        Methods.sleepy(400);
+        System.out.println();
+
+        Minigame.startGame();
+
+        // CHAPTER THREE
+        Animations.text("Oh my god...");
+        Methods.sleepy(1000);
+        Animations.text("You did it! Holy cow...");
+        
+
+    }
+
+}
